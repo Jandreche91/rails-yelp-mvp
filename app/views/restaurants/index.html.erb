@@ -1,0 +1,49 @@
+
+<div class="container text-center mt-2">
+
+  <h1> Welcome to the app!</h1>
+
+
+
+</div>
+
+
+<div class="container">
+  <h2>Have a look at our restaurants:</h2>
+
+  <table class="my-3">
+
+
+    <tr>
+
+      <th class="px-3">Name</th>
+      <th>Rating</th>
+      <th></th>
+
+    </tr>
+
+     <% @restaurants.each do |restaurant| %>
+
+     <tr>
+       <td class="px-3"><%=  restaurant.name.capitalize%></td>
+       <% rating = 0 %>
+       <% restaurant.reviews.each { |review| rating += review.rating } %>
+       <td class="px-3"><%=  rating.fdiv(restaurant.reviews.count) %></td>
+     </tr>
+
+     <% end %>
+
+
+
+
+
+
+
+  </table>
+
+
+
+
+
+
+</div>
