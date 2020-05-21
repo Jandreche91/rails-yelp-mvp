@@ -1,1 +1,49 @@
-<h1>A view!</h1>
+<div class="container text-center mt-3">
+<h1><%= @restaurant.name.capitalize %></h1>
+
+</div>
+
+<div class="container">
+
+<h6>Overall rating: <%= 0 if @rating.zero? %><% @rating.times  do %><i class="fas fa-drumstick-bite"></i><% end%></h6>
+<h6>Address: <%= @restaurant.address %></h6>
+<h6>Phone No. <%= @restaurant.phone_number %></h6>
+<h6>Type of food: <%= @restaurant.category.capitalize %></h6>
+
+</div>
+
+
+<div class="container mt-5">
+
+<h2>Reviews for <%= @restaurant.name %></h2>
+
+<% if @restaurant.reviews.empty? %>
+
+<h4>This Restaurant has no reveiws so far!</h4>
+
+<% else %>
+
+<% @restaurant.reviews.each do |review| %>
+
+
+<p>Rating: <%= 0 if review.rating.zero? %> <% review.rating.times do %> <i class="fas fa-drumstick-bite"></i><% end %></p>
+<p>Comment: <%= review.content %></p>
+
+
+<% end %>
+
+<% end %>
+
+</div>
+
+
+<div class="container text-center my-5">
+
+  <%= link_to "Back to the main list", restaurants_path, class: "btn btn-primary" %>
+
+</div>
+
+
+
+
+

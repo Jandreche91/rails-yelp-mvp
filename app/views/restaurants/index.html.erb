@@ -11,6 +11,8 @@
 <div class="container">
   <h2>Have a look at our restaurants:</h2>
 
+  <%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-primary btn-sm" %>
+
   <table class="my-3">
 
 
@@ -31,7 +33,7 @@
           <%= Restaurant.find(id).name.capitalize %>
         </td>
         <td class="p-3"><% review.times do %>
-          <i class="fas fa-star"></i>
+          <i class="fas fa-drumstick-bite"></i>
           <% end %>
         </td>
 

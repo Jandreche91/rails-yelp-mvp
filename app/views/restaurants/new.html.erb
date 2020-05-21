@@ -1,0 +1,33 @@
+
+
+<div class="container text-center">
+  <h1>New restaurant!</h1>
+
+</div>
+
+
+<div class="container">
+
+<h2>Add the new restaurant here</h2>
+
+<p>Or <%= link_to "go back to the list", restaurants_path %></p>
+
+
+<%= simple_form_for @restaurant do |f| %>
+
+<%= f.input :name, required: true %>
+<%= f.input :address, required: true %>
+<%= f.input :phone_number %>
+<%= f.input :category, collection:  %w(chinese italian japanese french belgian), required: true %>
+<%= f.submit "Create restaurant", class: "btn btn-success" %>
+
+<% end %>
+
+
+</div>
+
+
+
+
+
+
