@@ -17,19 +17,33 @@
     <tr>
 
       <th class="px-3">Name</th>
-      <th>Rating</th>
-      <th></th>
+      <th class="px-3">Rating</th>
+      <th class="px-3">Details</th>
+
 
     </tr>
 
-     <% @restaurants.each do |restaurant| %>
+     <% @review_hash.each do |id, review| %>
 
      <tr>
-       <td class="px-3"><%=  restaurant.name.capitalize%></td>
-       <% rating = 0 %>
-       <% restaurant.reviews.each { |review| rating += review.rating } %>
-       <td class="px-3"><%=  rating.fdiv(restaurant.reviews.count) %></td>
-     </tr>
+
+        <td class="p-3">
+          <%= Restaurant.find(id).name.capitalize %>
+        </td>
+        <td class="p-3"><% review.times do %>
+          <i class="fas fa-star"></i>
+          <% end %>
+        </td>
+
+        <td>
+          <%= link_to "See details", restaurant_path(Restaurant.find(id)), class: "p-3"%>
+        </td>
+
+
+    </tr>
+
+
+
 
      <% end %>
 
