@@ -1,5 +1,5 @@
 <div class="container text-center mt-3">
-<h1><%= @restaurant.name.capitalize %></h1>
+<h1><%= @restaurant.name %></h1>
 
 </div>
 
@@ -17,13 +17,15 @@
 
 <h2>Reviews for <%= @restaurant.name %></h2>
 
+<%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-warning my-5" %>
+
 <% if @restaurant.reviews.empty? %>
 
-<h4>This Restaurant has no reviews so far!</h4>
+<p>This Restaurant has no reviews so far!</p>
 
 <% else %>
 
-<% @restaurant.reviews.each do |review| %>
+<% @restaurant.reviews.reverse.each do |review| %>
 
 
 <p>Rating: <%= 0 if review.rating.zero? %> <% review.rating.times do %> <i class="fas fa-drumstick-bite"></i><% end %></p>
